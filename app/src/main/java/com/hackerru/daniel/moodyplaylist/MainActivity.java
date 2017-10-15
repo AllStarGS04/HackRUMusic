@@ -3,21 +3,12 @@ package com.hackerru.daniel.moodyplaylist;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
-import com.spotify.sdk.android.authentication.AuthenticationClient;
-import com.spotify.sdk.android.authentication.AuthenticationRequest;
-import com.spotify.sdk.android.authentication.AuthenticationResponse;
-import com.spotify.sdk.android.player.Config;
 import com.spotify.sdk.android.player.ConnectionStateCallback;
 import com.spotify.sdk.android.player.Error;
-import com.spotify.sdk.android.player.Player;
 import com.spotify.sdk.android.player.PlayerEvent;
-import com.spotify.sdk.android.player.Spotify;
 import com.spotify.sdk.android.player.SpotifyPlayer;
 
 import static com.spotify.sdk.android.authentication.LoginActivity.REQUEST_CODE;
@@ -25,21 +16,16 @@ import static com.spotify.sdk.android.authentication.LoginActivity.REQUEST_CODE;
 public class MainActivity extends Activity //implements SpotifyPlayer.NotificationCallback, ConnectionStateCallback
 {
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
 
-@Override
-public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-}
-
-<<<<<<< HEAD
-
-=======
     public void goToSad (View view) {
         Intent intent = new Intent(this, SMSMessage.class);
         startActivity(intent);
     }
->>>>>>> 806f2f7e9f9968aa4a047b9ebf8417c057634720
 
     public void goToSleepy (View view) {
         goToUrl ( "http://www.rwjuh.edu/sleepcenter/contactsfl.aspx");
@@ -65,12 +51,6 @@ public void onCreate(Bundle savedInstanceState) {
 
     }
 
-    public void goToSad (View view) {
-        setContentView(R.layout.sms_message);
-        Intent intent = new Intent(this, SMSMessage.class);
-        startActivity(intent);
-    }
-
     public void goToSMS (View view) {
         setContentView(R.layout.sms_message);
         Intent intent = new Intent(this, SMSMessage.class);
@@ -83,7 +63,6 @@ public void onCreate(Bundle savedInstanceState) {
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
-
 }
 
 
